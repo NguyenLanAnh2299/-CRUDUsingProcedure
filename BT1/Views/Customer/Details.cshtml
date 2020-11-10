@@ -15,59 +15,72 @@
     <link href="~/Content/Site.css" rel="stylesheet" />
     <link href="~/Content/Style.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="title">
-        <h3 style="background-color: blue;color: white; text-align: center; margin-top: -50px">Customer Report</h3>
+        <h3 style="background-color: blue;color: white; text-align: center; font-style: normal; margin-top:-50px; height:50px ">Detail Customer</h3>
     </div>
-    <div class="container">
-        <p class="link">
-            <a class="btn btn-success" id="list" href="/Customer/ShowAllCustomerDetails">
-                <i class="fa fa-angle-double-left"></i> List Customer
-            </a>
-        </p>
-        <table class="table table-bordered table-striped" style="text-align: center">
-            <thead>
-                <tr>
-                    <th style="text-align: center">
-                        @Html.DisplayNameFor(model => model.Name)
-                    </th>
-                    <th style="text-align: center">
-                        @Html.DisplayNameFor(model => model.Address)
-                    </th>
-                    <th style="text-align: center">
-                        @Html.DisplayNameFor(model => model.Mobileno)
-                    </th>
-                    <th style="text-align: center">
-                        @Html.DisplayNameFor(model => model.Birthdate)
-                    </th>
-                    <th style="text-align: center">
-                        @Html.DisplayNameFor(model => model.EmailID)
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        @Html.DisplayFor(model => model.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(model => model.Address)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(model => model.Mobileno)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(model => model.Birthdate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(model => model.EmailID)
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <span>@Html.ActionLink("List Customer", "ShowAllCustomerDetails")</span>
+                    <br />
+                    <span>@Html.ActionLink("New Customer", "InsertCustomer")</span>
+                </div>
+                <div class="col-md-9">
+                    <h4>Customer</h4>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-2">
+                            @Html.LabelFor(model => model.Name)
+                        </div>
+                        <div class="col-md-10">
+                            @Html.DisplayFor(model => model.Name, new { @class = "form-control", @placeholder = "Name" })
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-2">
+                            @Html.LabelFor(model => model.Address)
+                        </div>
+                        <div class="col-md-10">
+                            @Html.DisplayFor(model => model.Address, new { @class = "form-control", @placeholder = "Address" })
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-2">
+                            @Html.LabelFor(model => model.Mobileno)
+                        </div>
+                        <div class="col-md-10">
+                            @Html.DisplayFor(model => model.Mobileno, new { @class = "form-control", @placeholder = "Home Phone" })
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-2">
+                            @Html.LabelFor(model => model.Birthdate)
+                        </div>
+                        <div class="col-md-10">
+                            @Html.DisplayFor(model => model.Birthdate, new { @class = "form-control", @type = "date" })
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-2">
+                            @Html.LabelFor(model => model.EmailID)
+                        </div>
+                        <div class="col-md-10">
+                            @Html.DisplayFor(model => model.EmailID, new { @class = "form-control", @placeholder = "EmailID" })
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
