@@ -37,7 +37,7 @@ namespace BT1.Controllers
         public ActionResult ShowAllCustomerDetails()
         {
             Customer objCustomer = new Customer();
-            DataAccessLayer objDB = new DataAccessLayer(); //calling class DBdata  
+            DataAccessLayer objDB = new DataAccessLayer();
             objCustomer.ShowallCustomer = objDB.Selectalldata();
             return View(objCustomer);
         }
@@ -45,28 +45,26 @@ namespace BT1.Controllers
         public ActionResult Details(string ID)
         {          
             Customer objCustomer = new Customer();
-            DataAccessLayer objDB = new DataAccessLayer(); //calling class DBdata  
+            DataAccessLayer objDB = new DataAccessLayer();
             return View(objDB.SelectDatabyID(ID));
         }
         [HttpGet]
         public ActionResult Edit(string ID)
         {
             Customer objCustomer = new Customer();
-            DataAccessLayer objDB = new DataAccessLayer(); //calling class DBdata  
+            DataAccessLayer objDB = new DataAccessLayer();
             return View(objDB.SelectDatabyID(ID));
         }
         [HttpPost]
         public ActionResult Edit(Customer objCustomer)
         {
             objCustomer.Birthdate = Convert.ToDateTime(objCustomer.Birthdate);
-            if (ModelState.IsValid) //checking model is valid or not  
+            if (ModelState.IsValid)   
             {
-                DataAccessLayer objDB = new DataAccessLayer(); //calling class DBdata  
+                DataAccessLayer objDB = new DataAccessLayer(); 
                 string result = objDB.UpdateData(objCustomer);
-                //ViewData["result"] = result;  
                 TempData["resultUpdate"] = result;
-                ModelState.Clear(); //clearing model  
-                //return View();  
+                ModelState.Clear(); 
                 return RedirectToAction("ShowAllCustomerDetails");
             }
             else

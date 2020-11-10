@@ -14,7 +14,6 @@ namespace BT1.DataAccess
         public string InsertData(Customer objcust)
         {
             SqlConnection con = null;
-
             string result = "";
             try
             {
