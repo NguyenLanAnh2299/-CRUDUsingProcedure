@@ -15,6 +15,7 @@ namespace BT1.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult InsertCustomer(Customer objCustomer)
         {
@@ -33,6 +34,7 @@ namespace BT1.Controllers
                 return View();
             }
         }
+
         [HttpGet]
         public ActionResult ShowAllCustomerDetails()
         {

@@ -30,8 +30,9 @@ namespace BT1.DataAccess
                 result = cmd.ExecuteScalar().ToString();
                 return result;
             }
-            catch
+            catch(Exception exp)
             {
+                Console.WriteLine(exp.Message);
                 return result = "";
             }
             finally
@@ -143,7 +144,6 @@ namespace BT1.DataAccess
                 con.Close();
             }
         }
-
         public Customer SelectDatabyID(string CustomerID)
         {
             SqlConnection con = null;
